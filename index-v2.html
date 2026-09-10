@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Pacheco Construções: construção completa, reformas e acabamentos em Porto Alegre e região.">
+    <meta name="theme-color" content="#192744">
+    <meta property="og:title" content="Pacheco Construções">
+    <meta property="og:description" content="30 anos construindo com qualidade, organização e acabamento impecável.">
+    <meta property="og:image" content="assets/images/hero.png">
+    <meta property="og:type" content="website">
+    <title>Pacheco Construções | Qualidade em cada obra</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* RESET E CONFIGURAÇÕES GERAIS */
+:root {
+  --navy: #192744;
+  --navy-deep: #101d38;
+  --blue: #2f70cf;
+  --blue-light: #76a9ed;
+  --ink: #192744;
+  --muted: #68748a;
+  --line: #e7ebf1;
+  --soft: #f6f8fb;
+  --white: #fff;
+  --display: "Outfit", sans-serif;
+  --body: "Plus Jakarta Sans", sans-serif;
+  --shadow: 0 18px 50px rgba(25, 39, 68, .08);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--ink); background: var(--white); font: 400 15px/1.65 var(--body); overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button, input, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+.container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+
+/* HEADER */
+.site-header { position: fixed; inset: 0 0 auto; z-index: 20; color: white; transition: background .3s ease, padding .3s ease, box-shadow .3s ease; padding: 24px 0; }
+.site-header.scrolled { padding: 14px 0; background: rgba(25, 39, 68, .96); box-shadow: 0 8px 25px rgba(0,0,0,.12); backdrop-filter: blur(12px); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: #fff; font: 700 20px/1 var(--display); letter-spacing: .02em; }
+.brand small { display: block; margin-top: 4px; color: var(--blue-light); font: 500 10px/1 var(--body); letter-spacing: .12em; }
+.brand-mark { display: grid; width: 40px; height: 40px; place-items: center; color: #fff; background: var(--blue); border-radius: 9px; transition: transform .25s ease; }
+.brand:hover .brand-mark { transform: scale(1.06); }
+.brand-mark svg { width: 24px; height: 24px; }
+.desktop-nav { display: flex; align-items: center; gap: 30px; margin-left: auto; }
+.desktop-nav a, .site-footer nav a { color: rgba(255,255,255,.9); font-weight: 500; transition: color .2s ease; }
+.desktop-nav a:hover, .site-footer nav a:hover { color: var(--blue-light); }
+.header-actions { display: flex; align-items: center; gap: 16px; margin-left: 12px; }
+.social-link { display: grid; place-items: center; color: #fff; transition: color .2s ease, transform .2s ease; }
+.social-link:hover { color: var(--blue-light); transform: translateY(-2px); }
+.social-link svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+.menu-toggle { display: none; width: 42px; height: 42px; padding: 8px; border: 0; background: transparent; cursor: pointer; }
+.menu-toggle span { display: block; height: 2px; margin: 5px 0; background: #fff; border-radius: 2px; transition: transform .2s ease, opacity .2s ease; }
+.mobile-menu { display: none; }
+
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 1px solid transparent; border-radius: 999px; cursor: pointer; font-weight: 700; line-height: 1; transition: transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.button:hover { transform: translateY(-2px); }
+.button-small { padding: 13px 20px; font-size: 13px; }
+.button-large { min-height: 56px; padding: 0 30px; font-size: 15px; }
+.button-primary { color: #fff; background: var(--blue); box-shadow: 0 10px 25px rgba(47,112,207,.2); }
+.button-primary:hover { background: #255eaf; }
+.button-outline { color: #fff; border-color: rgba(255,255,255,.35); background: rgba(255,255,255,.02); }
+.button-outline:hover { background: rgba(255,255,255,.12); }
+.button-light { color: var(--navy); background: #fff; }
+.button-light svg, .button-form svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+.button-navy { padding: 13px 20px; color: #fff; background: var(--navy); font-size: 13px; }
+
+/* HERO */
+.hero { position: relative; display: grid; min-height: 680px; height: 100vh; place-items: center; overflow: hidden; }
+.hero-image { position: absolute; inset: 0; background: url("assets/images/hero.png") center/cover; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(25,39,68,.98), rgba(25,39,68,.53) 55%, rgba(25,39,68,.58)); mix-blend-mode: multiply; }
+.hero-content { position: relative; z-index: 1; margin-top: 60px; color: white; text-align: center; }
+.eyebrow { margin: 0 0 9px; color: var(--navy); font-size: 12px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+.eyebrow.accent { color: var(--blue-light); }
+.eyebrow-light { display: inline-flex; align-items: center; gap: 9px; padding: 8px 15px; color: #fff; border: 1px solid rgba(255,255,255,.2); border-radius: 100px; background: rgba(255,255,255,.1); backdrop-filter: blur(8px); }
+.eyebrow-icon { color: var(--blue-light); font-size: 17px; line-height: 1; }
+.hero h1 { margin: 25px 0 18px; font: 700 clamp(3.2rem, 8vw, 6.8rem)/.95 var(--display); letter-spacing: -.045em; }
+.hero h1 span { display: block; color: var(--blue-light); }
+.hero-lead { max-width: 680px; margin: 0 auto 35px; color: #d8deea; font-size: clamp(16px, 2.2vw, 21px); font-weight: 300; }
+.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 13px; }
+
+/* SERVIÇOS */
+.section { padding: 105px 0; }
+.section-light, .contact-section { background: var(--soft); }
+.section-white { background: #fff; }
+.section-heading { margin-bottom: 55px; text-align: center; }
+.section-heading h2, .instagram-content h2, .about-copy h2, .contact-info h2, .contact-form-wrap h2 { margin: 0; font: 700 clamp(2.1rem, 4vw, 3.2rem)/1.08 var(--display); letter-spacing: -.035em; }
+.heading-line { display: block; width: 95px; height: 4px; margin: 24px auto 0; background: var(--blue); border-radius: 9px; }
+.section-heading-wide > p:last-of-type { max-width: 730px; margin: 19px auto 0; color: var(--muted); font-size: 16px; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1100px; margin: 0 auto; }
+.service-card { position: relative; display: flex; flex-direction: column; min-height: 0; padding: 32px 30px; overflow: hidden; border: 1px solid #edf0f4; border-radius: 18px; background: #fff; box-shadow: var(--shadow); transition: transform .3s ease, box-shadow .3s ease; }
+.service-card:hover { transform: translateY(-8px); box-shadow: 0 22px 55px rgba(25,39,68,.14); }
+.service-card:after { position: absolute; top: -30px; right: -30px; width: 140px; height: 140px; content: ""; border-radius: 0 0 0 100%; background: rgba(47,112,207,.06); transition: background .3s ease; }
+.service-card:hover:after { background: rgba(47,112,207,.11); }
+.service-number { position: absolute; top: 10px; right: 24px; color: #f0f2f6; font: 700 78px/.9 var(--display); z-index: 0; }
+.service-icon { position: relative; z-index: 1; display: grid; width: 56px; height: 56px; margin-bottom: 22px; place-items: center; color: var(--navy); border-radius: 13px; background: rgba(25,39,68,.06); transition: color .25s ease, background .25s ease; }
+.service-card:hover .service-icon { color: #fff; background: var(--blue); }
+.service-icon svg { width: 28px; height: 28px; }
+.service-card h3 { position: relative; z-index: 1; margin: 0 0 11px; font: 700 20px/1.15 var(--display); }
+.service-card > p { margin: 0 0 18px; color: var(--muted); font-size: 13px; }
+.service-card ul, .differentials ul { display: grid; gap: 8px; padding: 0; margin: 0; list-style: none; }
+.service-card li { display: flex; align-items: flex-start; gap: 8px; color: #556174; font-size: 12px; line-height: 1.45; }
+.service-card li:before, .differentials li:before { flex: none; content: "✓"; color: var(--blue); font-weight: 700; }
+.service-link { display: flex; align-items: center; gap: 7px; margin-top: auto; padding-top: 24px; color: var(--blue); font-size: 13px; font-weight: 700; }
+.service-link span { transition: transform .2s ease; font-size: 20px; line-height: 0; }
+.service-link:hover span { transform: translateX(4px); }
+
+/* PORTFÓLIO */
+.portfolio-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.portfolio-card { position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: 16px; background: #eef1f4; cursor: default; }
+.portfolio-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
+.portfolio-card:after { position: absolute; inset: 0; content: ""; background: linear-gradient(to top, rgba(25,39,68,.82), transparent 65%); transition: opacity .3s ease; }
+.portfolio-card:hover img { transform: scale(1.09); }
+.portfolio-card:hover:after { opacity: .95; background: linear-gradient(to top, rgba(25,39,68,.98), rgba(25,39,68,.2) 72%); }
+.portfolio-caption { position: absolute; right: 0; bottom: 0; left: 0; z-index: 1; padding: 19px; color: #fff; }
+.portfolio-caption h3 { margin: 0; font: 600 15px/1.2 var(--display); }
+.portfolio-caption p { max-height: 0; margin: 0; overflow: hidden; color: rgba(255,255,255,.78); font-size: 11px; line-height: 1.4; opacity: 0; transition: max-height .3s ease, opacity .3s ease, margin .3s ease; }
+.portfolio-card:hover .portfolio-caption p { max-height: 50px; margin-top: 8px; opacity: 1; }
+
+.instagram-banner { position: relative; overflow: hidden; padding: 82px 0; color: #fff; background: linear-gradient(125deg, var(--navy), #0e2450); }
+.instagram-banner:after { position: absolute; top: -180px; right: -100px; width: 450px; height: 450px; content: ""; border-radius: 50%; background: rgba(47,112,207,.2); filter: blur(45px); }
+.dot-pattern { position: absolute; inset: 0; opacity: .12; background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 55px 55px; }
+.instagram-content { position: relative; z-index: 1; text-align: center; }
+.instagram-icon { display: grid; width: 64px; height: 64px; margin: 0 auto 22px; place-items: center; border: 1px solid rgba(255,255,255,.22); border-radius: 16px; background: rgba(255,255,255,.1); }
+.instagram-icon svg { width: 31px; height: 31px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+.instagram-content h2 { margin-bottom: 18px; }
+.instagram-content p { max-width: 660px; margin: 0 auto 32px; color: #d0d7e2; font-size: 16px; }
+
+/* SOBRE */
+.about-section { position: relative; overflow: hidden; color: white; background: var(--navy); }
+.about-shape { position: absolute; top: 0; right: -5%; width: 55%; height: 100%; background: rgba(47,112,207,.1); transform: skewX(-12deg); }
+.about-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(300px, .9fr) 1.15fr; align-items: start; gap: 75px; }
+.about-visual { max-width: 390px; }
+.portrait-frame { position: relative; overflow: hidden; border: 4px solid rgba(255,255,255,.18); border-radius: 24px; box-shadow: 18px 18px 0 rgba(47,112,207,.25), 0 20px 50px rgba(0,0,0,.2); }
+.portrait-frame img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top; }
+.portrait-gradient { position: absolute; inset: 35% 0 0; background: linear-gradient(to top, rgba(25,39,68,.92), transparent); }
+.portrait-caption { position: absolute; right: 22px; bottom: 18px; left: 22px; }
+.portrait-caption strong { display: block; font: 700 20px var(--display); }
+.portrait-caption span { color: var(--blue-light); font-size: 12px; }
+.about-badges { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; margin-top: 24px; }
+.about-badge { display: flex; align-items: center; gap: 12px; padding: 15px; border: 1px solid rgba(255,255,255,.16); border-radius: 15px; background: rgba(255,255,255,.08); backdrop-filter: blur(8px); }
+.about-badge > strong, .badge-building { display: grid; width: 43px; height: 43px; flex: none; place-items: center; color: var(--blue-light); border: 1px solid rgba(118,169,237,.4); border-radius: 11px; background: rgba(47,112,207,.2); font: 700 16px var(--display); }
+.badge-building svg { width: 22px; height: 22px; }
+.about-badge span:not(.badge-building) { color: #9da8bb; font-size: 10px; line-height: 1.3; }
+.about-badge span b { display: block; color: white; font-size: 11px; }
+.about-copy h2 { max-width: 600px; margin-bottom: 25px; }
+.about-text { display: grid; gap: 15px; color: #c4cbd7; font-weight: 300; }
+.about-text p { margin: 0; }
+.differentials { margin-top: 28px; padding: 29px; color: var(--ink); border-radius: 17px; background: white; box-shadow: 0 20px 45px rgba(0,0,0,.16); }
+.differentials h3 { margin: 0 0 19px; color: var(--navy); font: 700 20px var(--display); }
+.differentials li { display: flex; gap: 10px; color: #526074; font-size: 14px; }
+.differentials-footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding-top: 20px; margin-top: 22px; border-top: 1px solid var(--line); }
+.differentials-footer small { display: block; margin-bottom: 2px; color: var(--muted); font-size: 11px; }
+.differentials-footer strong { color: var(--navy); font-size: 16px; }
+
+/* CONTATO */
+.contact-card { display: grid; grid-template-columns: .82fr 1.18fr; max-width: 1040px; margin: 0 auto; overflow: hidden; border-radius: 22px; background: white; box-shadow: var(--shadow); }
+.contact-info { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 560px; padding: 48px 42px; overflow: hidden; color: white; background: var(--navy); }
+.glow { position: absolute; top: -100px; right: -100px; width: 250px; height: 250px; border-radius: 50%; background: var(--blue); opacity: .25; filter: blur(45px); }
+.contact-info-content { position: relative; z-index: 1; }
+.contact-info h2, .contact-form-wrap h2 { font-size: 31px; }
+.contact-info > .contact-info-content > p { max-width: 280px; margin: 8px 0 36px; color: #aab5c7; font-size: 13px; }
+.contact-list { display: grid; gap: 27px; }
+.contact-item { display: flex; gap: 14px; }
+.contact-icon { display: grid; width: 38px; height: 38px; flex: none; place-items: center; color: var(--blue-light); border-radius: 50%; background: rgba(255,255,255,.1); font-size: 18px; }
+.contact-item b { display: block; margin-bottom: 3px; font-size: 13px; }
+.contact-item p { margin: 0; color: #aab5c7; font-size: 11px; line-height: 1.7; }
+.contact-socials { position: relative; z-index: 1; display: flex; gap: 12px; }
+.contact-socials a { display: grid; width: 39px; height: 39px; place-items: center; color: white; border-radius: 50%; background: rgba(255,255,255,.1); transition: background .2s ease; }
+.contact-socials a:hover { background: var(--blue); }
+.contact-socials svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+.contact-form-wrap { padding: 48px 42px; }
+.contact-form-wrap h2 { margin-bottom: 27px; }
+#contact-form { display: grid; gap: 19px; }
+#contact-form label { display: grid; gap: 7px; color: var(--ink); font-size: 12px; font-weight: 600; }
+#contact-form input, #contact-form textarea { width: 100%; border: 1px solid var(--line); border-radius: 7px; outline: none; color: var(--ink); background: #fafbfc; padding: 0 14px; transition: border-color .2s ease, box-shadow .2s ease; }
+#contact-form input { height: 46px; }
+#contact-form textarea { min-height: 130px; resize: vertical; padding-top: 13px; }
+#contact-form input:focus, #contact-form textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(47,112,207,.12); }
+#contact-form input::placeholder, #contact-form textarea::placeholder { color: #a4adba; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.button-form { width: 100%; min-height: 52px; border: 0; font-size: 13px; }
+.form-note { margin: -7px 0 0; color: var(--muted); font-size: 11px; text-align: center; }
+
+/* RODAPÉ E ANIMAÇÕES */
+.site-footer { padding: 54px 0 25px; color: #fff; background: var(--navy); }
+.footer-top { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,.1); }
+.footer-top .brand { font-size: 19px; }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: 27px; }
+.site-footer nav a { color: #98a4b8; font-size: 12px; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 25px; color: #8995a9; font-size: 11px; }
+.footer-bottom p { margin: 0; }
+
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVIDADE */
+@media (max-width: 980px) {
+  .desktop-nav { gap: 17px; }
+  .header-quote { display: none; }
+  .services-grid { grid-template-columns: 1fr; max-width: 630px; }
+  .service-card { min-height: auto; }
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { gap: 45px; }
+  .contact-card { grid-template-columns: 1fr; max-width: 650px; }
+  .contact-info { min-height: auto; gap: 38px; }
+}
+
+@media (max-width: 700px) {
+  .container { width: min(100% - 32px, 560px); }
+  .site-header { padding: 17px 0; }
+  .desktop-nav, .header-actions { display: none; }
+  .menu-toggle { display: block; }
+  .mobile-menu { position: fixed; inset: 0; z-index: -1; display: flex; flex-direction: column; justify-content: space-between; padding: 100px 28px 30px; background: var(--navy); opacity: 0; pointer-events: none; transform: translateY(-10px); transition: opacity .25s ease, transform .25s ease; }
+  .mobile-menu.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  .mobile-menu nav { display: grid; gap: 22px; }
+  .mobile-menu nav a { color: #fff; font: 600 26px var(--display); }
+  .mobile-socials { display: flex; gap: 18px; }
+  .mobile-socials a { color: #fff; }
+  .mobile-socials svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+  .hero { min-height: 670px; }
+  .hero-content { margin-top: 45px; }
+  .hero h1 { font-size: clamp(3.1rem, 15vw, 5rem); }
+  .hero-lead { font-size: 15px; }
+  .hero-actions { width: 100%; }
+  .hero-actions .button { width: 100%; }
+  .section { padding: 78px 0; }
+  .section-heading { margin-bottom: 38px; }
+  .portfolio-grid { gap: 11px; }
+  .portfolio-caption { padding: 12px; }
+  .portfolio-caption h3 { font-size: 12px; }
+  .portfolio-caption p { display: none; }
+  .instagram-banner { padding: 70px 0; }
+  .instagram-content p { font-size: 14px; }
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .about-visual { max-width: 420px; margin: 0 auto; }
+  .about-copy h2 { font-size: 2.3rem; }
+  .about-badges { grid-template-columns: 1fr; }
+  .differentials-footer { align-items: flex-start; flex-direction: column; }
+  .contact-info, .contact-form-wrap { padding: 36px 26px; }
+  .contact-form-wrap h2 { font-size: 27px; }
+  .form-row { grid-template-columns: 1fr; gap: 19px; }
+  .footer-top, .footer-bottom { align-items: flex-start; flex-direction: column; }
+  .site-footer nav { gap: 15px 22px; }
+  .footer-bottom { gap: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *:before, *:after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* Refinamentos V2 */
+section[id], main[id] { scroll-margin-top: 96px; }
+:focus-visible { outline: 3px solid var(--blue-light); outline-offset: 4px; }
+.skip-link { position: fixed; top: 8px; left: 8px; z-index: 100; padding: 12px; background: white; color: var(--navy); transform: translateY(-160%); }
+.skip-link:focus { transform: none; }
+.reveal { opacity: 1; transform: none; }
+.services-grid { align-items: start; }
+.service-card { padding: 26px; }
+.service-card ul { gap: 6px; }
+.service-link { margin-top: 0; }
+.hero { background: var(--navy); }
+.hero-scroll { position: absolute; bottom: 20px; z-index: 2; color: #d8deea; font-size: 12px; text-align: center; }
+.hero-scroll span { display: block; font-size: 20px; }
+.gallery-controls { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.gallery-controls > span { margin-right: auto; color: var(--muted); font-size: 12px; }
+.gallery-arrow { display: inline-grid; place-items: center; flex: none; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; color: var(--navy); background: white; cursor: pointer; font-size: 24px; }
+.gallery-arrow:disabled { opacity: .35; cursor: default; }
+.portfolio-grid { display: flex; overflow-x: auto; gap: 18px; padding: 6px 4px 18px; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--blue) var(--soft); }
+.portfolio-card { flex: 0 0 calc((100% - 54px) / 4); scroll-snap-align: start; }
+.portfolio-open { position: absolute; inset: 0; z-index: 2; width: 100%; border: 0; border-radius: inherit; background: transparent; cursor: zoom-in; }
+.portfolio-open:focus-visible { outline-offset: -4px; }
+.portfolio-card:focus-within .portfolio-caption p { max-height: 90px; margin-top: 8px; opacity: 1; }
+.trust-strip { padding: 25px 0; background: #eef3fa; }
+.trust-strip ul { display: flex; justify-content: center; gap: 28px; padding: 0; list-style: none; font-size: 13px; font-weight: 600; }
+.trust-strip li::before { content: '✓'; margin-right: 8px; color: var(--blue); }
+.contact-item > div { min-width: 0; }
+.contact-item a { overflow-wrap: anywhere; text-decoration: underline; text-underline-offset: 3px; }
+.whatsapp-float { position: fixed; right: max(18px, env(safe-area-inset-right)); bottom: max(18px, env(safe-area-inset-bottom)); z-index: 19; display: grid; place-items: center; width: 52px; height: 52px; border: 1px solid #76a9ed; border-radius: 50%; color: white; background: var(--navy); box-shadow: 0 5px 20px #101d3840; }
+.whatsapp-float svg { width: 27px; height: 27px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+body.modal-open, body.menu-open { overflow: hidden; }
+#work-modal { width: min(80vw, 1000px); max-height: 88vh; max-height: 88dvh; padding: 20px; border: 0; border-radius: 20px; color: var(--ink); background: white; overflow-y: auto; box-shadow: 0 24px 90px #0006; }
+#work-modal::backdrop { background: #101d38d9; }
+.modal-toolbar, .modal-navigation { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.modal-toolbar { margin-bottom: 12px; }
+#work-image { width: 100%; height: 48vh; height: 48dvh; object-fit: contain; border-radius: 10px; background: var(--soft); }
+.modal-caption h2 { font: 600 24px/1.2 var(--display); margin: 18px 0 8px; }
+.modal-caption p { color: var(--muted); margin: 0 0 16px; }
+.modal-navigation, #work-count { font-size: 12px; }
+.site-footer { padding-bottom: 85px; }
+@media (max-width: 980px) { .portfolio-card { flex-basis: calc((100% - 36px) / 3); } }
+@media (max-width: 700px) {
+ .mobile-menu { visibility: hidden; overflow-y: auto; }
+ .mobile-menu.open { visibility: visible; }
+ .header-inner { position: relative; z-index: 1; }
+ .portfolio-card { flex-basis: 86%; }
+ .portfolio-caption h3 { font-size: 16px; }
+ .trust-strip ul { flex-direction: column; gap: 12px; }
+ #work-modal { width: calc(100% - 24px); padding: 14px; }
+ #work-image { height: 40vh; height: 40dvh; }
+ .modal-caption h2 { font-size: 21px; }
+ #contact-form input, #contact-form textarea { font-size: 16px; }
+ .hero h1 { font-size: clamp(2.5rem, 12.2vw, 5rem); }
+ .hero-actions .button { padding: 16px; line-height: 1.3; }
+ .contact-info, .contact-form-wrap { padding: 28px 22px; }
+ .form-row { grid-template-columns: 1fr; }
+ .whatsapp-float { width: 48px; height: 48px; right: 12px; }
+}
+    </style>
+  </head>
+  <body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <header class="site-header" id="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#home" aria-label="Pacheco Construções, início">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V9l7-5 7 5v12M8 21v-6h8v6M9 9h.01M15 9h.01"/></svg>
+          </span>
+          <span>PACHECO<small>CONSTRUÇÕES</small></span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Navegação principal">
+          <a href="#home">Home</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#projetos">Portfólio</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#contato">Contato</a>
+        </nav>
+
+        <div class="header-actions">
+          <a class="social-link" href="https://www.instagram.com/pacheco.contrucoes/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+          <a class="social-link" href="https://api.whatsapp.com/send/?phone=555189485171&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/><path d="M8.8 8.2c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4-.1.6l-.5.6c.5 1 1.2 1.6 2.2 2l.6-.5c.2-.2.4-.2.6-.1l1.7.8c.2.1.3.3.2.6-.2.8-.9 1.4-1.7 1.4-2 0-5.9-3.2-5.9-6.1 0-.4.2-.7.5-1Z"/></svg>
+          </a>
+          <a class="button button-small header-quote" href="https://api.whatsapp.com/send/?phone=555189485171&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">Fazer Orçamento</a>
+        </div>
+
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <nav aria-label="Navegação mobile">
+          <a href="#home">Home</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#projetos">Portfólio</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#contato">Contato</a>
+        </nav>
+        <div class="mobile-socials">
+          <a href="https://www.instagram.com/pacheco.contrucoes/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+          <a href="https://api.whatsapp.com/send/?phone=555189485171&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/><path d="M8.8 8.2c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4-.1.6l-.5.6c.5 1 1.2 1.6 2.2 2l.6-.5c.2-.2.4-.2.6-.1l1.7.8c.2.1.3.3.2.6-.2.8-.9 1.4-1.7 1.4-2 0-5.9-3.2-5.9-6.1 0-.4.2-.7.5-1Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <section class="hero" id="home">
+        <div class="hero-image"></div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content reveal">
+          <div class="eyebrow eyebrow-light"><span class="eyebrow-icon">⌂</span> Excelência em Construção</div>
+          <h1>PACHECO <span>CONSTRUÇÕES</span></h1>
+          <p class="hero-lead">30 anos construindo com qualidade, organização e acabamento impecável. Construção completa, reformas e acabamentos em Porto Alegre e região.</p>
+          <div class="hero-actions">
+            <a class="button button-primary button-large" href="#projetos">VER TRABALHOS REALIZADOS</a>
+            <a class="button button-outline button-large" href="https://api.whatsapp.com/send/?phone=555189485171&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">FALAR COM IZILDO</a>
+          </div>
+        </div>
+        <a class="hero-scroll" href="#servicos" aria-label="Conheça os serviços">Conheça os serviços <span aria-hidden="true">↓</span></a>
+      </section>
+
+      <section class="section section-light" id="servicos">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Especialidades</p>
+            <h2>Serviços em Destaque</h2>
+            <span class="heading-line"></span>
+          </div>
+          <div class="services-grid">
+            <article class="service-card reveal">
+              <span class="service-number">01</span>
+              <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18M5 21V9l7-5 7 5v12M8 21v-6h8v6"/></svg></div>
+              <h3>Construção Completa do Zero</h3>
+              <p>Execução completa de obras residenciais desde a preparação do terreno até os últimos acabamentos.</p>
+              <ul>
+                <li>Preparação do terreno</li><li>Fundação</li><li>Colunas e estruturas de concreto</li><li>Impermeabilização de vigas e fundações</li><li>Instalações hidráulicas</li><li>Tubulações sob contrapiso</li><li>Instalações elétricas</li><li>Contrapiso e piso</li><li>Revestimentos e porcelanato</li><li>Madeiramento e estrutura de telhado</li><li>Instalação de forro, portas e janelas</li><li>Pintura e acabamentos finais</li>
+              </ul>
+              <a class="service-link" href="https://api.whatsapp.com/send/?phone=555189485171&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">Solicitar orçamento <span>→</span></a>
+            </article>
+            <article class="service-card reveal">
+              <span class="service-number">02</span>
+              <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m14 6 4 4M4 20l4.7-1 9.8-9.8a2.8 2.8 0 0 0-4-4L4.7 15 4 20Z"/><path d="M13 7 17 11"/></svg></div>
+              <h3>Reformas e Ampliações</h3>
+              <p>Modernização, recuperação e ampliação de ambientes internos e externos.</p>
+              <ul>
+                <li>Banheiros e cozinhas</li><li>Quartos e salas</li><li>Garagens e muros</li><li>Áreas externas e de convivência</li><li>Áreas de lazer</li><li>Ampliações residenciais completas</li>
+              </ul>
+              <a class="service-link" href="https://api.whatsapp.com/send/?phone=555189485171&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">Solicitar orçamento <span>→</span></a>
+            </article>
+            <article class="service-card reveal">
+              <span class="service-number">03</span>
+              <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18M5 21V9l7-5 7 5v12M8 21v-6h8v6M9 9h.01M15 9h.01"/></svg></div>
+              <h3>Acabamento e Precisão</h3>
+              <p>Serviços executados com foco em alinhamento, durabilidade e qualidade visual.</p>
+              <ul>
+                <li>Reboco fino e resistente</li><li>Porcelanato com acabamento impecável</li><li>Alinhamento perfeito de paredes</li><li>Nivelamento correto</li><li>Instalação precisa de portas e janelas</li><li>Pintura de qualidade</li><li>Entrega sem resíduos</li>
+              </ul>
+              <a class="service-link" href="https://api.whatsapp.com/send/?phone=555189485171&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">Solicitar orçamento <span>→</span></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-white" id="projetos">
+        <div class="container">
+          <div class="section-heading section-heading-wide reveal">
+            <p class="eyebrow accent">Portfólio</p>
+            <h2>Trabalhos Realizados</h2>
+            <p>Alguns dos trabalhos realizados ao longo dos últimos anos. Cada projeto representa serviços executados com foco em qualidade, durabilidade, organização e acabamento profissional.</p>
+            <span class="heading-line"></span>
+          </div>
+          <div class="gallery-controls"><span id="gallery-hint">Deslize para explorar · Toque para ampliar</span><button type="button" class="gallery-arrow" id="gallery-prev" aria-label="Ver obras anteriores" aria-controls="gallery">←</button><button type="button" class="gallery-arrow" id="gallery-next" aria-label="Ver próximas obras" aria-controls="gallery">→</button></div><div class="portfolio-grid" id="gallery" role="region" aria-label="Galeria de trabalhos realizados" aria-describedby="gallery-hint" tabindex="0">
+            <article class="portfolio-card"><img src="assets/images/obra-1.jpeg" alt="Construção residencial concluída" loading="lazy"><div class="portfolio-caption"><h3>Construções Residenciais</h3><p>Construção, ampliação e execução de projetos residenciais com foco em qualidade e funcionalidade.</p></div><button class="portfolio-open" type="button" aria-label="Ampliar: Construções Residenciais" data-work="0"></button></article>
+            <article class="portfolio-card"><img src="assets/images/obra-2.jpeg" alt="Reforma geral de ambiente" loading="lazy"><div class="portfolio-caption"><h3>Reformas Gerais</h3><p>Reformas completas e melhorias em ambientes internos e externos.</p></div><button class="portfolio-open" type="button" aria-label="Ampliar: Reformas Gerais" data-work="1"></button></article>
+            <article class="portfolio-card"><img src="assets/images/obra-3.jpeg" alt="Área externa residencial" loading="lazy"><div class="portfolio-caption"><h3>Áreas Externas</h3><p>Pátios, jardins, muros, calçadas e áreas de convivência.</p></div><button class="portfolio-open" type="button" aria-label="Ampliar: Áreas Externas" data-work="2"></button></article>
+            <article class="portfolio-card"><img src="assets/images/obra-4.jpeg" alt="Área de lazer com piscina" loading="lazy"><div class="portfolio-caption"><h3>Piscinas e Lazer</h3><p>Execução e preparação de áreas de lazer integradas ao projeto residencial.</p></div><button class="portfolio-open" type="button" aria-label="Ampliar: Piscinas e Lazer" data-work="3"></button></article>
+            <article class="portfolio-card"><img src="assets/images/obra-5.jpeg" alt="Estrutura de madeira e cobertura" loading="lazy"><div class="portfolio-caption"><h3>Estruturas de Madeira e Coberturas</h3><p>Pergolados, coberturas, telhados e estruturas com acabamento de alta qualidade.</p></div><button class="portfolio-open" type="button" aria-label="Ampliar: Estruturas de Madeira e Coberturas" data-work="4"></button></article>
+            <article class="portfolio-card"><img src="assets/images/obra-6.jpeg" alt="Banheiro com acabamento" loading="lazy"><div class="portfolio-caption"><h3>Banheiros e Acabamentos</h3><p>Revestimentos, instalações e acabamentos modernos.</p></div><button class="portfolio-open" type="button" aria-label="Ampliar: Banheiros e Acabamentos" data-work="5"></button></article>
+            <article class="portfolio-card"><img src="assets/images/obra-7.jpeg" alt="Garagem e espaço coberto" loading="lazy"><div class="portfolio-caption"><h3>Garagens e Espaços Cobertos</h3><p>Construção de áreas cobertas para veículos e espaços multifuncionais.</p></div><button class="portfolio-open" type="button" aria-label="Ampliar: Garagens e Espaços Cobertos" data-work="6"></button></article>
+            <article class="portfolio-card"><img src="assets/images/obra-8.jpg" alt="Transformação de obra concluída" loading="lazy"><div class="portfolio-caption"><h3>Transformação de Obras</h3><p>Projetos concluídos demonstrando a qualidade final dos serviços.</p></div><button class="portfolio-open" type="button" aria-label="Ampliar: Transformação de Obras" data-work="7"></button></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="instagram-banner">
+        <div class="dot-pattern"></div>
+        <div class="container instagram-content reveal">
+          <div class="instagram-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></div>
+          <h2>Acompanhe as Obras</h2>
+          <p>Veja o passo a passo de construções, reformas e acabamentos nos vídeos publicados por Izildo no Instagram, com o resultado final e o processo de execução.</p>
+          <a class="button button-light button-large" href="https://www.instagram.com/pacheco.contrucoes/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg> Ver Obras no Instagram</a>
+        </div>
+      </section>
+
+      <section class="section about-section" id="sobre">
+        <div class="about-shape"></div>
+        <div class="container about-grid">
+          <div class="about-visual reveal">
+            <div class="portrait-frame"><img src="assets/images/izildo-pacheco.jpg" alt="Izildo Pacheco, mestre de obras" loading="lazy"><div class="portrait-gradient"></div><div class="portrait-caption"><strong>Izildo Pacheco</strong><span>Mestre de Obras · Porto Alegre, RS</span></div></div>
+            <div class="about-badges">
+              <div class="about-badge"><strong>30+</strong><span><b>Mais de 30 anos</b>de experiência</span></div>
+              <div class="about-badge"><span class="badge-building"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18M5 21V9l7-5 7 5v12M8 21v-6h8v6"/></svg></span><span><b>Construção completa</b>do início ao fim</span></div>
+            </div>
+          </div>
+          <div class="about-copy reveal">
+            <p class="eyebrow accent">Sobre o Profissional</p>
+            <h2>Décadas de experiência, comprometimento e qualidade em cada obra.</h2>
+            <div class="about-text"><p>Com mais de 30 anos de experiência na construção civil, Izildo Pacheco iniciou sua trajetória ainda jovem, trabalhando ao lado de seu pai como servente de obras. Com dedicação e aprendizado constante, passou a executar seus próprios projetos e construiu sua reputação com base na qualidade dos serviços prestados.</p><p>Especializado em construções residenciais completas, realiza desde a preparação do terreno e fundações até os últimos detalhes de acabamento. Cada projeto é acompanhado pessoalmente — quando necessário, conta apenas com o auxílio de um ou dois serventes — garantindo atenção aos detalhes e alto padrão de execução em todas as etapas.</p></div>
+            <div class="differentials"><h3>Por que escolher Izildo Pacheco?</h3><ul><li>Organização e limpeza constante durante toda a obra</li><li>Acabamento impecável com alinhamento preciso de estruturas</li><li>Respeito rigoroso aos prazos e cronogramas</li><li>Entrega de ambientes limpos, organizados e prontos para uso</li></ul><div class="differentials-footer"><div><small>Fale diretamente com o profissional</small><strong>+55 (51) 8948-5171</strong></div><a class="button button-navy" href="https://api.whatsapp.com/send/?phone=555189485171&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a></div></div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="trust-strip" aria-label="Atendimento e acompanhamento"><ul class="container"><li>Atendimento direto com o profissional</li><li>Porto Alegre e região</li><li>Obra acompanhada pessoalmente</li></ul></aside>
+      <section class="section contact-section" id="contato">
+        <div class="container">
+          <div class="contact-card reveal">
+            <div class="contact-info">
+              <div class="glow"></div>
+              <div class="contact-info-content">
+                <h2>Fale com Izildo</h2><p>Entre em contato diretamente com Izildo Pacheco pelo WhatsApp ou, se preferir, por e-mail.</p>
+                <div class="contact-list">
+                  <div class="contact-item"><span class="contact-icon">⌖</span><div><b>Endereço</b><p>Rua Francesco Rosito, Casa 60 — Bairro Hípica<br>Porto Alegre - RS, CEP 91788-124</p></div></div>
+                  <div class="contact-item"><span class="contact-icon">◔</span><div><b>Telefone</b><p><a href="tel:+555189485171">+55 (51) 8948-5171</a></p></div></div>
+                  <div class="contact-item"><span class="contact-icon">✉</span><div><b>E-mail</b><p><a href="mailto:izildoaparecidopacheco@gmail.com">izildoaparecidopacheco@gmail.com</a></p></div></div>
+                </div>
+              </div>
+              <div class="contact-socials"><a href="https://www.instagram.com/pacheco.contrucoes/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a><a href="https://api.whatsapp.com/send/?phone=555189485171&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.8 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/><path d="M8.8 8.2c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4-.1.6l-.5.6c.5 1 1.2 1.6 2.2 2l.6-.5c.2-.2.4-.2.6-.1l1.7.8c.2.1.3.3.2.6-.2.8-.9 1.4-1.7 1.4-2 0-5.9-3.2-5.9-6.1 0-.4.2-.7.5-1Z"/></svg></a></div>
+            </div>
+            <div class="contact-form-wrap">
+              <h2>Converse pelo WhatsApp</h2>
+              <form id="contact-form">
+                <div class="form-row"><label>Nome Completo<input autocomplete="name" maxlength="100" name="nome" type="text" placeholder="Seu nome" required></label><label>Telefone / WhatsApp<input autocomplete="tel" maxlength="40" name="telefone" type="tel" placeholder="(00) 00000-0000" required></label></div>
+                <label>E-mail<input autocomplete="email" maxlength="254" name="email" type="email" placeholder="seu@email.com" required></label>
+                <label>Sua Mensagem<textarea maxlength="3000" name="mensagem" placeholder="Descreva brevemente o seu projeto ou dúvida..." required></textarea></label>
+                <button class="button button-primary button-form" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/><path d="M8.8 8.2c.2-.4.4-.4.7.4l.7 1.7c.1.2.1.4-.1.6l-.5.6c.5 1 1.2 1.6 2.2 2l.6-.5c.2-.2.4-.2.6-.1l1.7.8c.2.1.3.3.2.6-.2.8-.9 1.4-1.7 1.4-2 0-5.9-3.2-5.9-6.1 0-.4.2-.7.5-1Z"/></svg> ABRIR CONVERSA NO WHATSAPP</button>
+                <p class="form-note">O WhatsApp abrirá com sua mensagem preenchida. Confira e toque em enviar para falar com Izildo.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <a class="brand" href="#home" aria-label="Pacheco Construções, início"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V9l7-5 7 5v12M8 21v-6h8v6M9 9h.01M15 9h.01"/></svg></span><span>PACHECO <small>CONSTRUÇÕES</small></span></a>
+        <nav aria-label="Navegação do rodapé"><a href="#home">Home</a><a href="#servicos">Serviços</a><a href="#projetos">Portfólio</a><a href="#sobre">Sobre</a></nav>
+      </div>
+      <div class="container footer-bottom"><p>© <span id="current-year"></span> Pacheco Construções. Todos os direitos reservados.</p><p>Desenvolvido com excelência.</p></div>
+    </footer>
+<a class="whatsapp-float" href="https://api.whatsapp.com/send/?phone=555189485171&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="Falar com Izildo no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/><path d="M8.8 8.2c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4-.1.6l-.5.6c.5 1 1.2 1.6 2.2 2l.6-.5c.2-.2.4-.2.6-.1l1.7.8c.2.1.3.3.2.6-.2.8-.9 1.4-1.7 1.4-2 0-5.9-3.2-5.9-6.1 0-.4.2-.7.5-1Z"/></svg></a>
+<dialog id="work-modal" aria-labelledby="work-title" aria-describedby="work-description">
+  <div class="modal-toolbar"><span id="work-count" aria-live="polite"></span><button type="button" class="gallery-arrow" id="work-close" aria-label="Fechar imagem" autofocus>×</button></div>
+  <img id="work-image" alt="">
+  <div class="modal-caption"><h2 id="work-title"></h2><p id="work-description"></p></div>
+  <div class="modal-navigation"><button type="button" class="gallery-arrow" id="work-prev" aria-label="Obra anterior">←</button><span>Anterior / Próxima</span><button type="button" class="gallery-arrow" id="work-next" aria-label="Próxima obra">→</button></div>
+</dialog>
+<script>
+(function () {
+  "use strict";
+
+  var header = document.getElementById("site-header");
+  var menuToggle = document.getElementById("menu-toggle");
+  var mobileMenu = document.getElementById("mobile-menu");
+  var mobileLinks = mobileMenu ? mobileMenu.querySelectorAll("a") : [];
+
+  function updateHeader() {
+    if (header) {
+      header.classList.toggle("scrolled", window.scrollY > 50);
+    }
+  }
+
+  function closeMenu() {
+    if (!mobileMenu || !menuToggle) return;
+    mobileMenu.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Abrir menu");
+    document.body.classList.remove("menu-open");
+  }
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", function () {
+      var isOpen = mobileMenu.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
+      document.body.classList.toggle("menu-open", isOpen);
+    });
+    mobileLinks.forEach(function (link) {
+      link.addEventListener("click", closeMenu);
+    });
+  }
+
+  window.addEventListener("scroll", updateHeader, { passive: true });
+  updateHeader();
+
+  var revealElements = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var observer = new IntersectionObserver(function (entries, currentObserver) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealElements.forEach(function (element) { observer.observe(element); });
+  } else {
+    revealElements.forEach(function (element) { element.classList.add("is-visible"); });
+  }
+
+  var form = document.getElementById("contact-form");
+  if (form) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      var data = new FormData(form);
+
+      var body = [
+        "Olá, Izildo! Meu nome é " + String(data.get("nome") || "").trim() + ".",
+        "Telefone / WhatsApp: " + (data.get("telefone") || ""),
+        "E-mail: " + (data.get("email") || ""),
+        "",
+        "Mensagem:",
+        data.get("mensagem") || ""
+      ].join("\n");
+      var url = new URL("https://api.whatsapp.com/send/?phone=555189485171&text&type=phone_number&app_absent=0");
+      url.searchParams.set("text", body);
+      window.location.assign(url.href);
+    });
+  }
+
+
+  var gallery = document.getElementById('gallery');
+  var cards = Array.from(gallery.querySelectorAll('.portfolio-card'));
+  var previous = document.getElementById('gallery-prev');
+  var next = document.getElementById('gallery-next');
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function updateGallery() {
+    previous.disabled = gallery.scrollLeft < 2;
+    next.disabled = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 2;
+  }
+  function moveGallery(direction) { gallery.scrollBy({left: direction * (cards[0].getBoundingClientRect().width + 18), behavior: reducedMotion.matches ? 'auto' : 'smooth'}); }
+  previous.addEventListener('click', function () { moveGallery(-1); });
+  next.addEventListener('click', function () { moveGallery(1); });
+  gallery.addEventListener('scroll', updateGallery, {passive: true});
+  window.addEventListener('resize', function () { updateGallery(); if (window.innerWidth > 700) closeMenu(); });
+  updateGallery();
+  var modal = document.getElementById('work-modal');
+  var current = 0;
+  var opener;
+  function showWork(index) {
+    current = (index + cards.length) % cards.length;
+    var card = cards[current];
+    var source = card.querySelector('img');
+    var enlarged = document.getElementById('work-image');
+    enlarged.src = source.getAttribute('src');
+    enlarged.alt = source.alt;
+    document.getElementById('work-title').textContent = card.querySelector('h3').textContent;
+    document.getElementById('work-description').textContent = card.querySelector('p').textContent;
+    document.getElementById('work-count').textContent = 'Obra ' + (current + 1) + ' de ' + cards.length;
+  }
+  gallery.querySelectorAll('.portfolio-open').forEach(function (button) {
+    button.addEventListener('click', function () { opener = button; showWork(Number(button.dataset.work)); modal.showModal(); document.body.classList.add('modal-open'); });
+  });
+  document.getElementById('work-prev').addEventListener('click', function () { showWork(current - 1); });
+  document.getElementById('work-next').addEventListener('click', function () { showWork(current + 1); });
+  document.getElementById('work-close').addEventListener('click', function () { modal.close(); });
+  modal.addEventListener('click', function (event) {
+    var rect = modal.getBoundingClientRect();
+    if (event.target === modal && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) modal.close();
+  });
+  modal.addEventListener('close', function () { document.body.classList.remove('modal-open'); if (opener) opener.focus({preventScroll: true}); });
+  document.addEventListener('keydown', function (event) {
+    if (modal.open) {
+      if (event.key === 'ArrowLeft') { event.preventDefault(); showWork(current - 1); }
+      if (event.key === 'ArrowRight') { event.preventDefault(); showWork(current + 1); }
+    } else if (mobileMenu.classList.contains('open')) {
+      if (event.key === 'Escape') { closeMenu(); menuToggle.focus(); }
+      if (event.key === 'Tab') {
+        var last = mobileLinks[mobileLinks.length - 1];
+        if (event.shiftKey && document.activeElement === menuToggle) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); menuToggle.focus(); }
+      }
+    }
+  });
+  var currentYear = document.getElementById("current-year");
+  if (currentYear) currentYear.textContent = String(new Date().getFullYear());
+})();
+    </script>
+  </body>
+</html>
